@@ -14,3 +14,8 @@ const operate = (operator, a, b) => {
   if (operator === "*") return multiply(a, b);
   if (operator === "/") return divide(a, b);
 };
+
+// Variables for each of the parts of a calculator operation
+let num1;
+let operator;
+let num2;
