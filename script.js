@@ -43,7 +43,8 @@ const subtract = (a, b) => a - b;
 
 const multiply = (a, b) => a * b;
 
-const divide = (a, b) => (b === 0 ? alert("Cannot divide by zero") : a / b);
+const divide = (a, b) =>
+  b === 0 ? (display.textContent = "dont be ridiculous") : a / b;
 
 // Operator Function
 const operate = (operator, a, b) => {
