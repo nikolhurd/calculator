@@ -26,6 +26,7 @@ buttons.addEventListener("click", (event) => {
   }
   if (target.classList.contains("clear")) {
     currentDisplayValue = "";
+    display.textContent = currentDisplayValue;
   }
   if (target.classList.contains("equals")) {
     numValue2 = parseFloat(currentDisplayValue);
