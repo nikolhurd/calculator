@@ -11,19 +11,28 @@ let currentDisplayValue = "";
 buttons.addEventListener("click", (event) => {
   let target = event.target;
 
-  if (target.classList.contains("operator")) {
-    console.log("Operator item was clicked");
-  }
   if (target.classList.contains("operand")) {
-    console.log("Operand item was clicked");
     currentDisplayValue += target.textContent;
     display.textContent = currentDisplayValue;
   }
+  if (target.classList.contains("operator")) {
+    if (display.textContent !== "") {
+      numValue1 = parseFloat(currentDisplayValue);
+      operator = target.textContent;
+      currentDisplayValue = "";
+    }
+
+    console.log(numValue1);
+  }
   if (target.classList.contains("clear")) {
-    console.log("Clear item was clicked");
+    currentDisplayValue = "";
   }
   if (target.classList.contains("equals")) {
-    console.log("Equals item was clicked");
+    numValue2 = parseFloat(currentDisplayValue);
+    console.log(numValue2);
+    let result = operate(operator, numValue1, numValue2);
+    console.log(result);
+    display.textContent = result.toString();
   }
 });
 
