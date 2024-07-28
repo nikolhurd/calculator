@@ -21,12 +21,19 @@ buttons.addEventListener("click", (event) => {
       operator = target.textContent;
       currentDisplayValue = "";
     }
-
-    console.log(numValue1);
+    if (numValue1 !== null && currentDisplayValue !== "") {
+      result = operate(operator, numValue1, numValue2);
+      numValue1 = null;
+      currentDisplayValue = "";
+      display.textContent = result.toString();
+    }
   }
   if (target.classList.contains("clear")) {
     currentDisplayValue = "";
-    display.textContent = currentDisplayValue;
+    numValue1 = undefined;
+    numValue2 = undefined;
+    operator = undefined;
+    display.textContent = "0";
   }
   if (target.classList.contains("equals")) {
     numValue2 = parseFloat(currentDisplayValue);
