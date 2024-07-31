@@ -3,30 +3,31 @@ const display = document.querySelector(".display");
 const buttons = document.querySelector(".buttons");
 
 // Variables for each of the parts of a calculator operation
-let numValue1;
-let operator;
-let numValue2;
+let numValue1 = null;
+let operator = null;
+let numValue2 = null;
 let currentDisplayValue = "";
+let result = null;
 
 buttons.addEventListener("click", (event) => {
   let target = event.target;
 
-  if (target.classList.contains("operand")) {
+  if (target.classList.contains("number")) {
     currentDisplayValue += target.textContent;
     display.textContent = currentDisplayValue;
   }
   if (target.classList.contains("operator")) {
-    if (display.textContent !== "") {
-      numValue1 = parseFloat(currentDisplayValue);
-      operator = target.textContent;
-      currentDisplayValue = "";
-    }
     if (numValue1 !== null && currentDisplayValue !== "") {
+      numValue2 = parseFloat(currentDisplayValue);
+      console.log("num2", numValue2);
       result = operate(operator, numValue1, numValue2);
-      numValue1 = null;
+      numValue1 = result;
       currentDisplayValue = "";
       display.textContent = result.toString();
-    }
+    } else numValue1 = parseFloat(currentDisplayValue);
+    operator = target.textContent;
+    currentDisplayValue = "";
+    console.log("num1", numValue1);
   }
   if (target.classList.contains("clear")) {
     currentDisplayValue = "";
@@ -38,7 +39,7 @@ buttons.addEventListener("click", (event) => {
   if (target.classList.contains("equals")) {
     numValue2 = parseFloat(currentDisplayValue);
     console.log(numValue2);
-    let result = operate(operator, numValue1, numValue2);
+    result = operate(operator, numValue1, numValue2);
     console.log(result);
     display.textContent = result.toString();
   }
