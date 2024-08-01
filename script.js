@@ -12,6 +12,11 @@ let result = null;
 buttons.addEventListener("click", (event) => {
   let target = event.target;
 
+  // if (target.classList.contains("decimal")) {
+  //   currentDisplayValue += target.textContent;
+  //   display.textContent = currentDisplayValue;
+  // }
+
   if (target.classList.contains("number")) {
     // if we click on number
     currentDisplayValue += target.textContent; // adding the numbers to the variable CDV
@@ -32,9 +37,9 @@ buttons.addEventListener("click", (event) => {
   }
   if (target.classList.contains("clear")) {
     currentDisplayValue = "";
-    numValue1 = undefined;
-    numValue2 = undefined;
-    operator = undefined;
+    numValue1 = null;
+    numValue2 = null;
+    operator = null;
     display.textContent = "0";
   }
   if (target.classList.contains("equals")) {
