@@ -8,14 +8,18 @@ let operator = null;
 let numValue2 = null;
 let currentDisplayValue = "";
 let result = null;
+let decimalAllowed = true;
 
 buttons.addEventListener("click", (event) => {
   let target = event.target;
 
-  // if (target.classList.contains("decimal")) {
-  //   currentDisplayValue += target.textContent;
-  //   display.textContent = currentDisplayValue;
-  // }
+  if (target.classList.contains("decimal")) {
+    if (decimalAllowed === true) {
+      currentDisplayValue += target.textContent;
+      display.textContent = currentDisplayValue;
+      decimalAllowed = false;
+    }
+  }
 
   if (target.classList.contains("number")) {
     // if we click on number
@@ -24,6 +28,7 @@ buttons.addEventListener("click", (event) => {
   }
   if (target.classList.contains("operator")) {
     // if we click on operator
+    decimalAllowed = true; // allow the decimal points
     if (numValue1 !== null && currentDisplayValue !== "") {
       // if we have already have first number and the user has entered a new number after the previous operation then do following
       numValue2 = parseFloat(currentDisplayValue); // number that we have written give to the numValue2 variable
