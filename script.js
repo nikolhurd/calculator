@@ -23,8 +23,11 @@ buttons.addEventListener("click", (event) => {
 
   if (target.classList.contains("number")) {
     // if we click on number
-    currentDisplayValue += target.textContent; // adding the numbers to the variable CDV
-    display.textContent = currentDisplayValue; // in display part of calculator we see what is inside CDV
+    if (currentDisplayValue.length <= 6) {
+      // cannot add more than 7 figures number
+      currentDisplayValue += target.textContent; // adding the numbers to the variable CDV
+      display.textContent = currentDisplayValue; // in display part of calculator we see what is inside CDV
+    }
   }
   if (target.classList.contains("operator")) {
     // if we click on operator
