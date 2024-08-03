@@ -70,8 +70,7 @@ const subtract = (a, b) => a - b;
 
 const multiply = (a, b) => a * b;
 
-const divide = (a, b) =>
-  b === 0 ? (display.textContent = "dont be ridiculous") : a / b;
+const divide = (a, b) => (b === 0 ? (display.textContent = "lol") : a / b);
 
 // Operator Function
 const operate = (operator, a, b) => {
